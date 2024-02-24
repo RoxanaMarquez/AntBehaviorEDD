@@ -4,6 +4,17 @@
  */
 package GUIS;
 
+/*
+* Librerias Para manejo de Archivos
+*/
+
+import DataManagement.ManagementFunctions;
+
+
+
+
+
+
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -34,68 +45,72 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Exit = new javax.swing.JButton();
+        jMenu1 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ShowCurrentInfo = new javax.swing.JTextArea();
         LoadFileButton = new javax.swing.JButton();
         SaveFileButton = new javax.swing.JButton();
         AddCityButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        DeleteCityButton = new javax.swing.JButton();
+        StartSimulationButton = new javax.swing.JButton();
         SavedFileName = new javax.swing.JTextField();
         SourceFileName = new javax.swing.JTextField();
         SourceFileLabel = new javax.swing.JLabel();
         SavedFileLabel = new javax.swing.JLabel();
+        NextStepButton = new javax.swing.JButton();
+        EndCiclesButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        NewSimulationButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.lightGray);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Exit.setBackground(new java.awt.Color(255, 255, 255));
-        Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/close.png"))); // NOI18N
-        Exit.setText("jButton1");
-        Exit.setBorder(null);
-        Exit.setBorderPainted(false);
-        Exit.setMinimumSize(new java.awt.Dimension(10, 10));
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, 60, 40));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(42, 10, 10));
         jLabel1.setText("Ants Systems");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 50));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("----------------------------\n\n             No\n             hay\n       informacion\n          cargada \n             en \n             el \n          sistema\n----------------------------");
-        jTextArea1.setFocusable(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        ShowCurrentInfo.setColumns(20);
+        ShowCurrentInfo.setRows(5);
+        ShowCurrentInfo.setText("----------------------------\n\n             No\n             hay\n       informacion\n          cargada \n             en \n             el \n          sistema\n----------------------------");
+        ShowCurrentInfo.setFocusable(false);
+        jScrollPane1.setViewportView(ShowCurrentInfo);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 130, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 120, 340));
 
+        LoadFileButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         LoadFileButton.setText("Cargar Archivo");
-        getContentPane().add(LoadFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, -1));
+        LoadFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoadFileButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LoadFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 120, -1));
 
+        SaveFileButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         SaveFileButton.setText("Guardar archivo");
-        getContentPane().add(SaveFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, -1));
+        getContentPane().add(SaveFileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, -1));
 
+        AddCityButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         AddCityButton.setText("Agregar ciudad");
-        getContentPane().add(AddCityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, -1));
+        getContentPane().add(AddCityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 120, -1));
 
-        jButton4.setText("Eliminar ciudad");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
+        DeleteCityButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        DeleteCityButton.setText("Eliminar ciudad");
+        getContentPane().add(DeleteCityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 120, -1));
 
-        jButton5.setText("Simular");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 140, 50));
+        StartSimulationButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        StartSimulationButton.setText("Iniciar Ciclos");
+        getContentPane().add(StartSimulationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 120, -1));
 
         SavedFileName.setText("---No ha guardado el archivo---");
-        getContentPane().add(SavedFileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 260, -1));
+        getContentPane().add(SavedFileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, 260, -1));
 
         SourceFileName.setText(" ----No Hay ningun archivo abierto---");
         SourceFileName.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +118,7 @@ public class MainWindow extends javax.swing.JFrame {
                 SourceFileNameActionPerformed(evt);
             }
         });
-        getContentPane().add(SourceFileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 260, -1));
+        getContentPane().add(SourceFileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 260, -1));
 
         SourceFileLabel.setForeground(new java.awt.Color(51, 51, 51));
         SourceFileLabel.setText("Archivo origen:");
@@ -111,7 +126,44 @@ public class MainWindow extends javax.swing.JFrame {
 
         SavedFileLabel.setForeground(new java.awt.Color(51, 51, 51));
         SavedFileLabel.setText("Archivo destino:");
-        getContentPane().add(SavedFileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 250, -1));
+        getContentPane().add(SavedFileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 250, -1));
+
+        NextStepButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        NextStepButton.setText("Siguiente Ciclo");
+        NextStepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextStepButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NextStepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 120, -1));
+
+        EndCiclesButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        EndCiclesButton.setText("Finalizar Ciclos");
+        EndCiclesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EndCiclesButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EndCiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Informacion actual:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 130, -1));
+
+        NewSimulationButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        NewSimulationButton.setText("Nueva Simulacion");
+        NewSimulationButton.setMargin(new java.awt.Insets(2, 8, 2, 8));
+        NewSimulationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewSimulationButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NewSimulationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 120, -1));
+
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setText("Roxana Marquez UNIMET 2024");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 690, 210, -1));
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Background1.jpg"))); // NOI18N
@@ -119,7 +171,7 @@ public class MainWindow extends javax.swing.JFrame {
         Background.setToolTipText("");
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Background.setOpaque(true);
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 750));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1060, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -133,6 +185,27 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_SourceFileNameActionPerformed
+
+    private void LoadFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadFileButtonActionPerformed
+        // TODO add your handling code here:
+        ManagementFunctions LoadFile = new ManagementFunctions();
+        String[] texto = null;
+        LoadFile.GetInfo(texto);
+        System.out.println(texto);
+        // this.ShowCurrentInfo.setText(texto);
+    }//GEN-LAST:event_LoadFileButtonActionPerformed
+
+    private void EndCiclesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndCiclesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EndCiclesButtonActionPerformed
+
+    private void NewSimulationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewSimulationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewSimulationButtonActionPerformed
+
+    private void NextStepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NextStepButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,18 +245,23 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddCityButton;
     private javax.swing.JLabel Background;
-    private javax.swing.JButton Exit;
+    private javax.swing.JButton DeleteCityButton;
+    private javax.swing.JButton EndCiclesButton;
     private javax.swing.JButton LoadFileButton;
+    private javax.swing.JButton NewSimulationButton;
+    private javax.swing.JButton NextStepButton;
     private javax.swing.JButton SaveFileButton;
     private javax.swing.JLabel SavedFileLabel;
     private javax.swing.JTextField SavedFileName;
+    private javax.swing.JTextArea ShowCurrentInfo;
     private javax.swing.JLabel SourceFileLabel;
     private javax.swing.JTextField SourceFileName;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton StartSimulationButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
     /**
