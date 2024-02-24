@@ -14,6 +14,22 @@ public class Edge {
     private Node cityEnd;
     private int distance;
 
+    public Edge(Node cityInit, Node cityEnd, int distance) {
+        this.cityInit = cityInit;
+        this.cityEnd = cityEnd;
+        this.distance = distance;
+    }
+
+        public Edge() {
+        this.cityInit = null;
+        this.cityEnd = null;
+        this.distance = 0;
+    }
+
+    
+    
+    
+    
     /**
      * @return the cityInit
      */

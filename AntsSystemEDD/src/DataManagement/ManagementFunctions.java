@@ -10,14 +10,12 @@ package DataManagement;
  */
 public class ManagementFunctions {
     private String UserFileName;
-    private int InicialCity;
-    private int FinalCity;
+    private int InitialCity;
     private String rawData;
 
     public ManagementFunctions() {
         this.UserFileName = null;
-        this.InicialCity = 0;
-        this.FinalCity = 0;
+        this.InitialCity = 0;
         this.rawData = null;
     }
     
@@ -76,32 +74,19 @@ public class ManagementFunctions {
     }
 
     /**
-     * @return the InicialCity
+     * @return the InitialCity
      */
-    public int getInicialCity() {
-        return InicialCity;
+    public int getInitialCity() {
+        return InitialCity;
     }
 
     /**
-     * @param InicialCity the InicialCity to set
+     * @param InitialCity the InitialCity to set
      */
-    public void setInicialCity(int InicialCity) {
-        this.InicialCity = InicialCity;
+    public void setInitialCity(int InitialCity) {
+        this.InitialCity = InitialCity;
     }
 
-    /**
-     * @return the FinalCity
-     */
-    public int getFinalCity() {
-        return FinalCity;
-    }
-
-    /**
-     * @param FinalCity the FinalCity to set
-     */
-    public void setFinalCity(int FinalCity) {
-        this.FinalCity = FinalCity;
-    }
 
     /**
      * @return the rawData
