@@ -4,18 +4,24 @@
  */
 package DataManagement;
 
+/*
+* Mis librerias
+*/
+import Graph.CityMap;
+import SimpleList.List;
+
+
 /**
  *
  * @author Posilandia
  */
 public class ManagementFunctions {
     private String UserFileName;
-    private int InitialCity;
     private String rawData;
+    
 
     public ManagementFunctions() {
         this.UserFileName = null;
-        this.InitialCity = 0;
         this.rawData = null;
     }
     
@@ -24,70 +30,14 @@ public class ManagementFunctions {
  * Metodo para buscar el archivo de texto y retornar el contenido
  * 
  */  
-    public static void GetInfo(String[] args) {
+    public static void GetInfo(String[] args, List cityList, CityMap map) {
         ManagementFunctions RetrieveData = new ManagementFunctions();
         LoadData FileInfo = new LoadData();
-        FileInfo.ReadInfo(args);
-        
-                
-         //RetrieveData.setRawData(FileInfo.getUserData());
-         //RetrieveData.printRawData();
+        FileInfo.ReadInfo(args, cityList,  map);
 
-        
-        
-        
-        
-        
-         //RetrieveData.setUserFileName(FileInfo.getUserFileName());
-        
-        
-        
-        /*
-        while (FileInfo.getUserData().hasNext()) {
-            System.out.println(FileInfo.getUserData().nextLine());
-        }
-        */
-        //FileInfo.getUserData();
-        
-        
     }
+   
     
-    public static void ReadFile (){
-    
-    
-    
-    }
-    
-    
-    /**
-     * @return the UserFileName
-     */
-    public String getUserFileName() {
-        return UserFileName;
-    }
-
-    /**
-     * @param UserFileName the UserFileName to set
-     */
-    public void setUserFileName(String UserFileName) {
-        this.UserFileName = UserFileName;
-    }
-
-    /**
-     * @return the InitialCity
-     */
-    public int getInitialCity() {
-        return InitialCity;
-    }
-
-    /**
-     * @param InitialCity the InitialCity to set
-     */
-    public void setInitialCity(int InitialCity) {
-        this.InitialCity = InitialCity;
-    }
-
-
     /**
      * @return the rawData
      */

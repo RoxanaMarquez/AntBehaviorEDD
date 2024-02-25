@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DataManagement;
-import SimpleList.List;
 
-    
+/*
+*       MIS LIBRERIAS
+*/
+import Graph.CityMap;
+import SimpleList.List;
+/*
+*        LIBRERIAS EXTERNAS
+*/
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import jdk.jfr.BooleanFlag;
-
-
 
 
 /**
@@ -23,31 +26,28 @@ import jdk.jfr.BooleanFlag;
  * @author Posilandia
  */
 public class LoadData {
-    private String userFileName ;
     private String userData;
 
     public LoadData() {
-        this.userFileName =null ;
         this.userData = ""; 
     }
-    
-    
-
     
     /**
      * Metodo para buscar el archivo de data en formato txt utilizando jfileChooser
      * La carpeta que se abrira por defecto es la misma donde esta el proyacto, ahi habra un archivo de pruba por default
      * @param args 
      */
-    public static void ReadInfo(String[] args) {
+    public static void ReadInfo(String[] args, List cityList, CityMap map) {
+        
+        // -----------------        Inicializacion de variables
         Boolean flagc = false; // esta variable controla que la informacion que esta en el texto es correcta
         Boolean flaga = false;
         Boolean flagERROR = false;
         
          LoadData dataEntry = new LoadData();
-         List cityList = new List();
          List aristasList = new List();
                  
+         // ----------------           cuerpo del metodo
          Scanner entry = null;
          JFileChooser fileChooser = new JFileChooser("");
          FileFilter txtfilter = new FileNameExtensionFilter(" ","txt"); 
@@ -57,11 +57,9 @@ public class LoadData {
                 String ruta = fileChooser.getSelectedFile().getAbsolutePath();
                 try {
                      File f = new File(ruta);
-                     dataEntry.setuserFileName(ruta);
+                     cityList.setListFileName(ruta);
                      entry = new Scanner(f);
-
                       if (entry != null) {
-
                                     // entry.nextLine();
                                    while (entry.hasNextLine()){
                                             dataEntry.setuserData(entry.nextLine());
@@ -77,30 +75,15 @@ public class LoadData {
                                                 flagc = false;
                                                 break;
                                             }
-                                            
                                             if (flagc){
                                                 dataEntry.fillCityList(dataEntry.getuserData(),cityList );
                                             }
                                             if (flaga){aristasList.addCity(dataEntry.userData);}
                                    }  
-                                   
                           }        
-
-                                    
-                                //DataEntry.appendUserData(entry.nextLine());
-                       System.out.println("***********************************");
+                       //DataEntry.appendUserData(entry.nextLine());
                        cityList.printList();
                       //aristasList.printList();
-                      
-                      /**
-                     // Utilizo User Data como variable para ir controlando el texto de entrada
-                     while (entry.hasNext()) {
-                                //impresion para controlar lo que va leyendo el sistema
-                              //System.out.println("directo del raw : " + entry.nextLine());
-
-                      System.out.println("Variable de control  " + DataEntry.getUserData());
-                      }
-                     */
 
                   } catch (FileNotFoundException e) {
                          System.out.println(e.getMessage());
@@ -114,7 +97,9 @@ public class LoadData {
          }
      }
 
-    
+    /*
+    *       metodo para llenar la lista simple de ciudades
+    */
     public void fillCityList(String name, List cityList){
         int number =0;
         try{
@@ -126,22 +111,6 @@ public class LoadData {
         } catch ( NumberFormatException n){
             number = 0;
         }
-    }
-        
- 
-
-    /**
-     * @return the UserFileName
-     */
-    public String getuserFileName() {
-        return userFileName;
-    }
-
-    /**
-     * @param UserFileName the UserFileName to set
-     */
-    public void setuserFileName(String FileName) {
-        this.userFileName = FileName;
     }
 
     /**

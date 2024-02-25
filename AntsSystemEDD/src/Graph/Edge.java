@@ -13,17 +13,20 @@ public class Edge {
     private Node cityInit;
     private Node cityEnd;
     private int distance;
+    private Edge next;
 
     public Edge(Node cityInit, Node cityEnd, int distance) {
         this.cityInit = cityInit;
         this.cityEnd = cityEnd;
         this.distance = distance;
+        this.next = null;
     }
 
         public Edge() {
         this.cityInit = null;
         this.cityEnd = null;
         this.distance = 0;
+        this.next = null;
     }
 
     
@@ -70,6 +73,20 @@ public class Edge {
      */
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    /**
+     * @return the next
+     */
+    public Edge getNext() {
+        return next;
+    }
+
+    /**
+     * @param next the next to set
+     */
+    public void setNext(Edge next) {
+        this.next = next;
     }
     
 }

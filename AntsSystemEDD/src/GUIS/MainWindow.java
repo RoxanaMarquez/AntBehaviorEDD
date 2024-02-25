@@ -5,20 +5,18 @@
 package GUIS;
 
 /*
-* Librerias Para manejo de Archivos
+* Mis librerias
 */
-
+import SimpleList.List;
+import Graph.CityMap;
 import DataManagement.ManagementFunctions;
 
 
 
 
-
-
-import java.awt.Graphics;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import static javax.swing.UIManager.get;
+/*
+* Librerias externas
+*/
 
 /**
  *
@@ -34,6 +32,8 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        
     }
 
     /**
@@ -103,6 +103,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         DeleteCityButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         DeleteCityButton.setText("Eliminar ciudad");
+        DeleteCityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteCityButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(DeleteCityButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 120, -1));
 
         StartSimulationButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -184,14 +189,21 @@ public class MainWindow extends javax.swing.JFrame {
     private void SourceFileNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SourceFileNameActionPerformed
         // TODO add your handling code here:
         
+        
     }//GEN-LAST:event_SourceFileNameActionPerformed
 
     private void LoadFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoadFileButtonActionPerformed
         // TODO add your handling code here:
         ManagementFunctions LoadFile = new ManagementFunctions();
+        List cityList = new List();
+        CityMap map = new CityMap();
         String[] texto = null;
-        LoadFile.GetInfo(texto);
-        System.out.println(texto);
+        LoadFile.GetInfo(texto, cityList,  map);
+        this.SourceFileName.setText(cityList.getListFileName());
+        this.ShowCurrentInfo.setText(cityList.printList());
+        
+        
+        //System.out.println(texto);
         // this.ShowCurrentInfo.setText(texto);
     }//GEN-LAST:event_LoadFileButtonActionPerformed
 
@@ -206,6 +218,13 @@ public class MainWindow extends javax.swing.JFrame {
     private void NextStepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NextStepButtonActionPerformed
+
+    private void DeleteCityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCityButtonActionPerformed
+        // TODO add your handling code here:
+        DeleteCityWindow deleteWindow = new DeleteCityWindow();
+        deleteWindow.setVisible(true);
+        
+    }//GEN-LAST:event_DeleteCityButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +259,10 @@ public class MainWindow extends javax.swing.JFrame {
                 new MainWindow().setVisible(true);
             }
         });
+        
+        
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
