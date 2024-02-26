@@ -23,12 +23,17 @@ public class Edge {
     }
 
         public Edge() {
+            
         this.cityInit = null;
         this.cityEnd = null;
         this.distance = 0;
         this.next = null;
     }
 
+    public void addEdge(Edge road){
+        
+    
+    }
     
     
     

@@ -17,20 +17,20 @@ public class List {
     private String listFileName;
 
     public List(Node city, int size, Node head, Node initialCity, Node finalCity) {
-        this.city = null;
-        this.size = 0;
-        this.head = null;
-        this.initialCity = null;
-        this.finalCity = null;
-        this.listFileName = "";
-    }
-    
-        public List() {
         this.city = city;
         this.size = size;
         this.head = head;
         this.initialCity = initialCity;
         this.finalCity = finalCity;
+        this.listFileName = "";
+    }
+    
+        public List() {
+        this.city = null;
+        this.size = 0;
+        this.head = null;
+        this.initialCity = null;
+        this.finalCity = null;
         this.listFileName = "";
 
     }

@@ -200,7 +200,6 @@ public class MainWindow extends javax.swing.JFrame {
         String[] texto = null;
         LoadFile.GetInfo(texto, cityList,  map);
         this.SourceFileName.setText(cityList.getListFileName());
-        this.ShowCurrentInfo.setText(cityList.printList());
         
         
         //System.out.println(texto);
@@ -213,6 +212,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void NewSimulationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewSimulationButtonActionPerformed
         // TODO add your handling code here:
+        SimulationWindow Simulation = new SimulationWindow();
+        Simulation.setVisible(true);
+        
     }//GEN-LAST:event_NewSimulationButtonActionPerformed
 
     private void NextStepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextStepButtonActionPerformed
@@ -221,6 +223,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void DeleteCityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCityButtonActionPerformed
         // TODO add your handling code here:
+        
         DeleteCityWindow deleteWindow = new DeleteCityWindow();
         deleteWindow.setVisible(true);
         
